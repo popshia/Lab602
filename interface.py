@@ -31,5 +31,14 @@ with window("main_window"):
             add_menu_item("Output Replay Video with In-Out Lines")
 
         add_menu_item("Help")
+    
+    add_checkbox( "Sedan", default_value = False )
+    add_checkbox( "Truck", default_value = False )
+    add_checkbox( "Bus", default_value = False )
+    add_checkbox( "Trailer Head", default_value = False )
+    add_checkbox( "Cargo", default_value = False )
+    add_checkbox( "Moto", default_value = False )
+    add_checkbox( "Bike", default_value = False )
+    add_checkbox( "Pedestrain", default_value = False )
 
 start_dearpygui(primary_window="main_window")
