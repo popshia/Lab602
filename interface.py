@@ -40,9 +40,5 @@ with window("main_window"):
     add_checkbox( "Moto", default_value = False )
     add_checkbox( "Bike", default_value = False )
     add_checkbox( "Pedestrain", default_value = False )
-    
-    
-    
-    add_checkbox( "Pedestrain", default_value = False )
 
 start_dearpygui(primary_window="main_window")
