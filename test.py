@@ -32,3 +32,4 @@ set_item_style_var("Main", mvGuiStyleVar_WindowBorderSize, [0])
 
 set_render_callback(auto_center)
 start_dearpygui(primary_window="Main")
+# test
