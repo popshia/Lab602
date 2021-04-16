@@ -1,7 +1,10 @@
 import tkinter as tk
+from tkinter import font
+from tkinter import ttk
 from PIL import Image, ImageTk
 import cv2
 import os
+
 window = tk.Tk()
 window.geometry("1800x1200")
 window.title("Lab602")
@@ -79,20 +82,42 @@ moto_val = tk.BooleanVar()
 bike_val = tk.BooleanVar()
 pedestrain_val = tk.BooleanVar()
 
-sedanCheckBox = tk.Checkbutton(window, text="Sedan", variable=sedan_val, onvalue=1, offvalue=0)
-sedanCheckBox.place(x=1700, y=0)
-tk.Checkbutton(window, text="Truck",  variable=truck_val, onvalue=1, offvalue=0).pack()
-tk.Checkbutton(window, text="Bus", variable=bus_val, onvalue=1, offvalue=0).pack()
-tk.Checkbutton(window, text="Trailer Head", variable=trialerHead_val, onvalue=1, offvalue=0).pack()
-tk.Checkbutton(window, text="Cargo", variable=cargo_val, onvalue=1, offvalue=0).pack()
-tk.Checkbutton(window, text="Moto", variable=moto_val, onvalue=1, offvalue=0).pack()
-tk.Checkbutton(window, text="Bike", variable=bike_val, onvalue=1, offvalue=0).pack()
-tk.Checkbutton(window, text="Pedestrian", variable=pedestrain_val, onvalue=1, offvalue=0).pack()
+checkBoxFont = font.Font(size=20)
+checkBoxes = ttk.LabelFrame(window, text="CheckBoxes")
+checkBoxes.grid(column=0, row=0, padx=5, pady=5)
+checkBoxes.place(x=1600, y=10)
 
-image_canvas = tk.Canvas(window, bg='#000000', height=950, width=1600)
-image_canvas.place(x=0, y=0)
+sedanCheckBox = tk.Checkbutton(checkBoxes, text="Sedan", variable=sedan_val, onvalue=1, offvalue=0, font=checkBoxFont)
+sedanCheckBox.grid(column=0, row=0, sticky='W')
+
+truckCheckBox = tk.Checkbutton(checkBoxes, text="Truck",  variable=truck_val, onvalue=1, offvalue=0, font=checkBoxFont)
+truckCheckBox.grid(column=0, row=1, sticky='W')
+
+busCheckBox = tk.Checkbutton(checkBoxes, text="Bus", variable=bus_val, onvalue=1, offvalue=0, font=checkBoxFont)
+busCheckBox.grid(column=0, row=2, sticky='W')
+
+trailerCheckBox = tk.Checkbutton(checkBoxes, text="Trailer Head", variable=trialerHead_val,
+                                 onvalue=1, offvalue=0, font=checkBoxFont)
+trailerCheckBox.grid(column=0, row=3, sticky='W')
+
+cargoCheckBox = tk.Checkbutton(checkBoxes, text="Cargo", variable=cargo_val, onvalue=1, offvalue=0, font=checkBoxFont)
+cargoCheckBox.grid(column=0, row=4, sticky='W')
+
+motoCheckBox = tk.Checkbutton(checkBoxes, text="Moto", variable=moto_val, onvalue=1, offvalue=0, font=checkBoxFont)
+motoCheckBox.grid(column=0, row=5, sticky='W')
+
+bikeCheckBox = tk.Checkbutton(checkBoxes, text="Bike", variable=bike_val, onvalue=1, offvalue=0, font=checkBoxFont)
+bikeCheckBox.grid(column=0, row=6, sticky='W')
+
+pedestrianCheckBox = tk.Checkbutton(checkBoxes, text="Pedestrian", variable=pedestrain_val,
+                                    onvalue=1, offvalue=0, font=checkBoxFont)
+pedestrianCheckBox.grid(column=0, row=7, sticky='W')
+
+# image_canvas = tk.Canvas(window, bg='#000000', height=950, width=1600)
+# image_canvas.place(x=0, y=0)
 button = tk.Button(window, text="Set ROI", width=10, height=2)
 button.place(x=420, y=465)
 
+# font.nametofont("TkDefaultFont").config(size=14)
 window.config(menu=menubar)
 window.mainloop()
