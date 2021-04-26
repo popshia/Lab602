@@ -3,6 +3,7 @@ from tkinter import LabelFrame, font, ttk, BOTH, W, N, E, S
 from PIL import Image, ImageTk
 import cv2
 import os
+from ..menubar_functions import video_read
 
 
 class Main_Window(ttk.Frame):
@@ -28,8 +29,7 @@ class Main_Window(ttk.Frame):
         # sub menu loadmenu
         loadMenu = tk.Menu(menubar)
         menubar.add_cascade(label="Load Data", menu=loadMenu)
-        loadMenu.add_command(label="Load Video")
-        # loadMenu.add_command(label="Load Video", command=image)
+        loadMenu.add_command(label="Load Video", command=video_read.ReadVideo)
         loadMenu.add_command(label="Load ROI and Process Lines")
         loadMenu.add_command(label="Load In-Out Lines")
         # sub menu setMenu
@@ -152,7 +152,7 @@ class Main_Window(ttk.Frame):
         inOutDistance.grid(column=7, row=13, padx=5, sticky=E+W+S+N)
 
 
-if __name__ == "__main__":
+def gui_init():
     root = tk.Tk()
     root.geometry("1800x1200")
     window = Main_Window()
