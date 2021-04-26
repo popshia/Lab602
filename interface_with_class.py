@@ -13,7 +13,6 @@ class Main_Window(ttk.Frame):
         self.init_checkbox()
         self.init_video_canvas()
         self.init_informations()
-        self.init_buttons()
 
     def init_UI(self):
         self.master.title("Lab602")
@@ -33,6 +32,12 @@ class Main_Window(ttk.Frame):
         # loadMenu.add_command(label="Load Video", command=image)
         loadMenu.add_command(label="Load ROI and Process Lines")
         loadMenu.add_command(label="Load In-Out Lines")
+        # sub menu setMenu
+        setMenu = tk.Menu(menubar)
+        menubar.add_cascade(label="Set Data", menu=setMenu)
+        setMenu.add_command(label="Set ROI")
+        setMenu.add_command(label="Set Process Lines")
+        setMenu.add_command(label="Set In-Out Lines")
         # sub menu stabalization
         stabalizeMenu = tk.Menu(menubar)
         menubar.add_cascade(label="Stabalization", menu=stabalizeMenu)
@@ -145,18 +150,6 @@ class Main_Window(ttk.Frame):
         inOutDistanceLabel.grid(column=6, row=13, sticky=E, pady=5)
         inOutDistance = tk.Text(buttonFrame, height=1, width=10, font=informationFont, spacing1=4)
         inOutDistance.grid(column=7, row=13, padx=5, sticky=E+W+S+N)
-
-    def init_buttons(self):
-        buttonFrameFont = font.Font(size=20)
-        buttonFont = font.Font(size=16)
-        buttonFrame = LabelFrame(self, text='Set', font=buttonFrameFont)
-        buttonFrame.grid(column=9, row=3, sticky=E+W+S+N, padx=10, pady=10)
-        roiButton = tk.Button(buttonFrame, text="Set ROI", font=buttonFont, width=11, pady=5)
-        roiButton.grid(row=1, column=1, padx=5, pady=5)
-        processLineButton = tk.Button(buttonFrame, text="Set Process Lines", font=buttonFont, width=11, pady=5)
-        processLineButton.grid(row=2, column=1, padx=5, pady=5)
-        inoutLineButton = tk.Button(buttonFrame, text="Set In-Out Lines", font=buttonFont, width=11, pady=5)
-        inoutLineButton.grid(row=3, column=1, padx=5, pady=5)
 
 
 if __name__ == "__main__":
