@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 from tkinter import filedialog
 import cv2
 import os
-from ..interface_initialize.interface_with_class import *
+from ..interface_initialize.interface_with_class import * 
 
 
 def ReadVideo():
